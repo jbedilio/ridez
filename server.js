@@ -3,7 +3,7 @@ const bp = require('body-parser');
 const mongoose = require('mongoose');
 const request = require('request');
 const pass = require('passport');
-const local = require('passport-local');
+const LocalStrategy = require('passport-local');
 
 //setting mongoose to leverage built in ES6 Promises
 mongoose.Promise = Promise;
@@ -22,13 +22,13 @@ app.use(bp.urlencoded({ extended: true }));
 app.use(bp.json());
 
 app.use(require('express-session')({ secret: 'sweethomeindiana', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(pass.initialize());
+app.use(pass.session());
 
 const User = require("./models/UserModel.js");
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+pass.use(new LocalStrategy(User.authenticate()));
+pass.serializeUser(User.serializeUser());
+pass.deserializeUser(User.deserializeUser());
 
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
@@ -46,7 +46,7 @@ db.once('open', () => {
     console.log('Mongoose in the hizzy!');
 });
 
-const routes = require('./controllers');
+const routes = require('./routes');
 
 app.use('/', routes);
 

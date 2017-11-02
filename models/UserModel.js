@@ -1,33 +1,34 @@
 //requiring mongoose & creating a Schema class with mongoose
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const passLocalMon = require('passport-local-mongoose');
 
 //making UserSchema a Schema
 var UserSchema = new Schema({
     username: {
         type: String,
         trim: true,
-        required: 'Please create a user name.'
+        // required: 'Please create a user name.'
     },
     password: {
         type: String,
         trim: true,
-        required: 'Please enter a password.'
+        // required: 'Please enter a password.'
     },
     firstName: {
         type: String,
         trim: true,
-        required: 'Please enter your first name.'
+        // required: 'Please enter your first name.'
     },
     lastName: {
         type: String,
         trim: true,
-        required: 'Please enter your last name.'
+        // required: 'Please enter your last name.'
     },
     email: {
         type: String,
         unique: true,
-        match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
+        // match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
     },
     created: {
         type: Date,
@@ -50,5 +51,7 @@ var UserSchema = new Schema({
     }]
 });
 
-var User = mongoose.model('User', UserSchema)
+UserSchema.plugin(passLocalMon);
+
+const User = mongoose.model('User', UserSchema)
 module.exports = User;
