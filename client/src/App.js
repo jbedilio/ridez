@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import NotFound from './pages/NotFound';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img className="App-logo"/>
-          <h1 className="App-title">Ridez Bitches</h1>
-        </header>
-        <p className="App-intro">
-        </p>
-      </div>
-    );
-  }
-}
+const App = () =>
+  <Router>
+    <Switch>
+      <Route exact path ='/' />
+      <Route component={NotFound} />
+    </Switch>
+  </Router>;
+    
 
 export default App;
