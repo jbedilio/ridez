@@ -35,7 +35,7 @@ class Ridez extends Component {
         }).catch(err => console.log(err));
     };
 
-    deleteRidez = id => {
+    deleteRidez = (id) => {
         API.deleteRidez(id)
         .then(res => this.loadRidez())
         .catch(err => console.log(err));
@@ -87,7 +87,7 @@ class Ridez extends Component {
                                         name="stop"
                                         placeholder="stop required" />
                                     <br />
-                                        <label formfor="comment">Details:</label>
+                                        <label formfor="details">Details:</label>
                                         <textarea className="form-control" rows="5" id="Details"
                                             onChange={this.handleInputChange}
                                             type="text"
@@ -118,8 +118,9 @@ class Ridez extends Component {
                                                     {ridez.start} --> {ridez.stop}: {ridez.details}
                                                 </strong>
                                             </Link>
-                                                <button className="btn btn-danger" 
+                                                <button className="btn btn-danger" id="delete"
                                                     style={{marginLeft: 12 + 'px'}}
+                                                    name='deleteButton'
                                                     value={ridez._id}
                                                     onClick={() => this.deleteRidez(ridez._id)}>
                                                     Delete

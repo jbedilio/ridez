@@ -1,6 +1,6 @@
 const pass = require('passport');
 const User = require('./../models/UserModel.js');
-const router = require('express').Router();
+// const router = require('express').Router();
 
 module.exports = {
     //routes use preceeding /api/auth

@@ -1,22 +1,22 @@
-const path = require('path');
-const express = require('express');
-const request = require('request');
-const axios = require('axios');
-//grab an instance of express router
-const router = express.Router();
-const mongoose = require('mongoose');
+// const path = require('path');
+// const express = require('express');
+// const request = require('request');
+// const axios = require('axios');
+// //grab an instance of express router
+// const router = express.Router();
+// const mongoose = require('mongoose');
 const db = require('../models');
 
 //import the models
-const User = require('./../models/UserModel.js');
-const Rating = require('./../models/RatingModel.js');
-const Ridez =require('./../models/RidezModel.js');
+// const User = require('./../models/UserModel.js');
+// const Rating = require('./../models/RatingModel.js');
+// const Ridez =require('./../models/RidezModel.js');
 
 module.exports = {
     findAll: function (req, res) {
         if (req.user) {
             db.Ridez
-                .find({})
+                .find(req.query)
                 .sort({ date: -1 })
                 .then(dbModel => res.json({ results: dbModel, sess: req.session }))
                 .catch(err => res.status(422).json(err));
@@ -53,7 +53,7 @@ module.exports = {
         }
         else { res.json({ error: "Please login", statusCode: 401 }) }
     },
-    delete: function (req, res) {
+    remove: function (req, res) {
         if (req.user) {
             db.Ridez
                 .findById({ _id: req.params.id })

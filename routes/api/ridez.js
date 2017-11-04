@@ -5,12 +5,12 @@ const ridezController = require('./../../controllers/ridezController.js');
 router.route('/')
 .get(ridezController.findAll)
 .post(ridezController.create);
-// .post(ridezController.delete);
 
-//route = /api/ridez/:username
+
+//route = /api/ridez/:id
 router.route('/:id')
 .get(ridezController.findById)
 .post(ridezController.update)
-.post(ridezController.delete);
+.delete(ridezController.remove);
 
 module.exports = router;

@@ -24,6 +24,6 @@ export default {
     },
     // Saves one to the database
     save: function (ridezData) {
-        return axios.post("/api/ridez/", ridezData);
+        return axios.post("/api/ridez", ridezData);
     },
 };
