@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var RidezSchema = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
     start: {
         type: String,
         required: true
