@@ -1,13 +1,29 @@
 import axios from 'axios';
 
 export default {
-    register: (userInfo) => {
-        return axios.post('/api/auth/register', userInfo);
+    register: function(userData) {
+        return axios.post('/api/auth/register', userData);
     },
-    login: (userInfo) => {
-        return axios.post('/api/auth/login', userInfo);
+    login: function(userData) {
+        return axios.post('/api/auth/login', userData);
     },
-    logout: () => {
+    logout: function() {
         return axios.get('/api/auth/logout');
-    }
+    },
+    // Gets all
+    getAllRidez: function () {
+        return axios.get("/api/ridez");
+    },
+    // Gets one with the given id
+    getRidez: function (id) {
+        return axios.get('/api/ridez/', id);
+    },
+    // Deletes one with the given id
+    deleteRidez: function (id) {
+        return axios.delete('/api/ridez/', id);
+    },
+    // Saves one to the database
+    save: function (ridezData) {
+        return axios.post("/api/ridez/", ridezData);
+    },
 };

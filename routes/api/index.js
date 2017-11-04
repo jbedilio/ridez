@@ -6,6 +6,6 @@ const ridez = require('./ridez.js');
 router.use('/auth', auth);
 
 // //ridez routes - /api/ridez
-// router.use('/ridez', ridez);
+router.use('/ridez', ridez);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import API from './../../utils/API.js';
+import Nav from "../../components/Nav";
 
 class Login extends Component {
     state = {
@@ -10,7 +11,7 @@ class Login extends Component {
 
     componentWillMount() {
         API.logout()
-            .catch(err => console.log(err));
+        .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
@@ -42,62 +43,52 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="jumbotron text-center">
-                                <h1>
-                                login
-                                </h1>
+                <Nav userInfo={this.state.currentUser}/>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="jumbotron text-center">
+                                    <h1>
+                                    login
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12 text-center">
+                                <form>
+                                    <div className="input-group">
+                                    <span className="input-group-addon">
+                                        <i className="glyphicon glyphicon-user"></i>
+                                    </span>
+                                    <input className="form-control" id="username" 
+                                    onChange={this.handleInputChange}
+                                    type="text"  
+                                    name="username" 
+                                    placeholder="username"/>
+                                    </div><br />
+                                    <div className="input-group">
+                                    <span className="input-group-addon">
+                                        <i className="glyphicon glyphicon-lock"></i>
+                                    </span>
+                                    <input className="form-control" id="password"
+                                    onChange={this.handleInputChange}
+                                    type="password"
+                                    name="password"
+                                    placeholder="password"/>
+                                    </div><br />
+                                    <button className="btn-primary"
+                                    disabled={!(this.state.username && this.state.password)}
+                                    onClick={this.handleFormSubmit}>
+                                    Login
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-md-12 text-center">
-                            <form>
-                                <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-user"></i>
-                                </span>
-                                <input className="form-control" id="username" 
-                                onChange={this.handleInputChange}
-                                type="text"  
-                                name="username" 
-                                placeholder="username"/>
-                                {/* <input 
-                                onChange={this.handleInputChange}
-                                name="username"
-                                type="username"
-                                placeholder="username required"/> */}
-                                </div><br />
-                                <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-lock"></i>
-                                </span>
-                                <input className="form-control" id="password"
-                                onChange={this.handleInputChange}
-                                type="text"
-                                name="password"
-                                placeholder="password"/>
-                                {/* <input
-                                onChange={this.handleInputChange}
-                                name="password"
-                                type="password"
-                                placeholder="password required" /> */}
-                                </div><br />
-                                <button
-                                className="btn-primary"
-                                disabled={!(this.state.username && this.state.password)}
-                                onClick={this.handleFormSubmit}>
-                                Login
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>             
-        );
+                </div>             
+            );
+        }
     }
-}
 
 export default Login;

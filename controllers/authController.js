@@ -4,29 +4,27 @@ const router = require('express').Router();
 
 module.exports = {
     //routes use preceeding /api/auth
-    register: ((req, res) => {
-        User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
+    register: function(req, res) {
+        User.register(new User({username: req.body.username}), req.body.password, function (err, user) {
             if(err){
-                console.log('1: ', req.body, err)
+                console.log('err: ', err);
                return res.status(500).json({error: err});
             }
-            console.log('2: ', req.body)
-            pass.authenticate('local')((requ, resp) => {
-                return resp.status(200).json({result: 'success', user: user});
+            pass.authenticate('local')(req, res, function () {
+                return res.status(200).json({result: 'success', user: user});
             });
         });
-    }),
+    },
 
-    login: ((req, res) => {
-        pass.authenticate('local')((requ, resp) => {
+    login: function(req, res) {
+        pass.authenticate('local')(req, res, function () {
             console.log(req, res);
-            console.log(requ, resp);
-           return resp.status(200).json({result: 'success', user: req.user, session: req.session})
+           return res.status(200).json({result: 'success', user: req.user, session: req.session})
         });
-    }),
+    },
 
-    logout: ((req, res) => {
+    logout: function(req, res) {
         req.logOut();
-        res.status(200).json({result: 'success'})
-    }),
+        return res.status(200).json({result: 'success'})
+    },
 };

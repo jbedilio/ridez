@@ -1,7 +1,16 @@
-// const router = require('express').Router();
-// const ridezContoller = require('./../../controllers/ridezController.js');
+const router = require('express').Router();
+const ridezController = require('./../../controllers/ridezController.js');
 
-// //postfix to /api/ridez
-// router.route('/:city-state').get(ridezController.find).post(ridezController.post).post(ridezController.delete);
+//route = to /api/ridez
+router.route('/')
+.get(ridezController.findAll)
+.post(ridezController.create);
+// .post(ridezController.delete);
 
-// router.route('/:username').get(ridezController.findbyUsername).post(ridezController.update).post(ridezController.delete);
+//route = /api/ridez/:username
+router.route('/:id')
+.get(ridezController.findById)
+.post(ridezController.update)
+.post(ridezController.delete);
+
+module.exports = router;

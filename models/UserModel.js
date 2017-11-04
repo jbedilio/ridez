@@ -8,27 +8,28 @@ var UserSchema = new Schema({
     username: {
         type: String,
         trim: true,
-        // required: 'Please create a user name.'
+        // required: true
     },
     password: {
         type: String,
         trim: true,
-        // required: 'Please enter a password.'
+        // required: true
     },
     firstName: {
         type: String,
         trim: true,
-        // required: 'Please enter your first name.'
+        // required: true
     },
     lastName: {
         type: String,
         trim: true,
-        // required: 'Please enter your last name.'
+        // required: true
     },
     email: {
         type: String,
-        unique: true,
-        // match: [/.+\@.+\..+/, 'Please enter a valid e-mail address']
+        // unique: true,
+        // match: [/.+\@.+\..+/],
+        // required: true
     },
     created: {
         type: Date,
@@ -37,7 +38,7 @@ var UserSchema = new Schema({
     //do you smoke?
     smoker: {
         type: Boolean,
-        defualt: false,
+        default: false,
     },
     openSeats: {
         type: Number,
