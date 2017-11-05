@@ -6,6 +6,7 @@ import Nav from '../../components/Nav';
 class Ridez extends Component {
     state = {
         ridez: [],
+        username: "",
         start: "",
         stop: "",
         details: "",
@@ -27,6 +28,7 @@ class Ridez extends Component {
                 this.setState({
                     currentUser: res.data.sess.passport.user,
                     ridez: res.data.results,
+                    username: "",
                     start: "",
                     stop: "",
                     details: ""
@@ -52,6 +54,7 @@ class Ridez extends Component {
         event.preventDefault();
         if (this.state.start && this.state.stop) {
             API.save({
+                username: this.state.username,
                 start: this.state.start,
                 stop: this.state.stop,
                 details: this.state.details
@@ -72,6 +75,13 @@ class Ridez extends Component {
                                     <h1>Where to? - Create Ridez</h1>
                                 </div>
                                 <form>
+                                    <input className="form-control" id="username"
+                                        value={this.state.username}
+                                        onChange={this.handleInputChange}
+                                        type="text"
+                                        name="username"
+                                        placeholder="posting username required" />
+                                    <br />
                                     <input className="form-control" id="start"
                                         value={this.state.start}
                                         onChange={this.handleInputChange}
@@ -95,7 +105,7 @@ class Ridez extends Component {
                                             placeholder="details"></textarea>
                                     <br />
                                     <button className="btn-primary" id="newRidez"
-                                        disabled={!(this.state.start && this.state.stop)}
+                                        disabled={!(this.state.username && this.state.start && this.state.stop)}
                                         onClick={this.handleFormSubmit}>
                                         loadRidez
                                     </button>
@@ -111,21 +121,25 @@ class Ridez extends Component {
                                 {this.state.ridez.length ? (
                                     <ul style={{listStyleType: 'none'}}>
                                         {this.state.ridez.map(ridez => (
-                                            <li key={ridez._id}
-                                                style={{textAlign: 'left'}}>
-                                            <Link to={'/ridez/' + ridez._id}>
-                                                <strong>
-                                                    {ridez.start} --> {ridez.stop}: {ridez.details}
-                                                </strong>
-                                            </Link>
-                                                <button className="btn btn-danger" id="delete"
-                                                    style={{marginLeft: 12 + 'px'}}
-                                                    name='deleteButton'
-                                                    value={ridez._id}
-                                                    onClick={() => this.deleteRidez(ridez._id)}>
-                                                    Delete
-                                                </button>
-                                            </li>
+                                            <form className="text-left">
+                                                <p><strong>
+                                                    {ridez.username}
+                                                </strong></p>
+                                                <li key={ridez._id} style={{textAlign: 'left'}}>
+                                                    <Link to={'/ridez/' + ridez._id}>
+                                                        <strong>
+                                                            {ridez.start} --> {ridez.stop}: {ridez.details}
+                                                        </strong>
+                                                    </Link>
+                                                    <button className="btn btn-danger" id="delete"
+                                                        style={{marginLeft: 12 + 'px'}}
+                                                        name='_id'
+                                                        value={ridez._id}
+                                                        onClick={() => this.deleteRidez(ridez._id)}>
+                                                        Delete
+                                                    </button>
+                                                </li>
+                                            </form>
                                         ))}
                                     </ul>
                                 ) : (
