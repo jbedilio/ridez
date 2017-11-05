@@ -1,4 +1,4 @@
-const pass = require('passport');
+const passport = require('passport');
 const User = require('./../models/UserModel.js');
 // const router = require('express').Router();
 
@@ -10,14 +10,14 @@ module.exports = {
                 console.log('err: ', err);
                return res.status(500).json({error: err});
             }
-            pass.authenticate('local')(req, res, function () {
+            passport.authenticate('local')(req, res, function () {
                 return res.status(200).json({result: 'success', user: user});
             });
         });
     },
 
     login: function(req, res) {
-        pass.authenticate('local')(req, res, function () {
+        passport.authenticate('local')(req, res, function () {
             console.log(req, res);
            return res.status(200).json({result: 'success', user: req.user, session: req.session})
         });

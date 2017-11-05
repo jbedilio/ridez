@@ -2,12 +2,12 @@ const express = require('express');
 const bp = require('body-parser');
 const mongoose = require('mongoose');
 const request = require('request');
-const pass = require('passport');
+const passport = require('passport');
 const LocalStrategy = require('passport-local');
 // const io = require('socket.io')();
 
 //setting mongoose to leverage built in ES6 Promises
-mongoose.Promise = Promise;
+mongoose.Promise = global.Promise;
 
 //setting the PORT
 var PORT = process.env.PORT || 3001;
@@ -24,13 +24,13 @@ app.use(bp.urlencoded({ extended: true }));
 app.use(bp.json());
 
 app.use(require('express-session')({secret: 'sweethomeindiana', resave: false, saveUninitialized: false}));
-app.use(pass.initialize());
-app.use(pass.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 const User = require("./models/UserModel.js");
-pass.use(new LocalStrategy(User.authenticate()));
-pass.serializeUser(User.serializeUser());
-pass.deserializeUser(User.deserializeUser());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
