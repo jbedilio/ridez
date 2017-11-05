@@ -117,11 +117,12 @@ class Register extends Component {
                                     <div className="form-group text-left">
                                     <label formfor="smoker">Smoke:</label>
                                         <select className="form-control" id="sell"
+                                            value={this.state.value}
                                             onChange={this.handleInputChange}
                                             name="smoker"
                                             type="boolean">
-                                            <option value="true">Yes</option>
-                                            <option value="false">No</option>
+                                            <option value={true}>Yes</option>
+                                            <option value={false}>No</option>
                                         </select>
                                     </div>
                                     <div className="form-group text-left">

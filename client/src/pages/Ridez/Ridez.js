@@ -125,19 +125,25 @@ class Ridez extends Component {
                                                 <p><strong>
                                                     {ridez.username}
                                                 </strong></p>
-                                                <li key={ridez._id} style={{textAlign: 'left'}}>
+                                                <li style={{textAlign: 'left'}}
+                                                    key={ridez._id}
+                                                    name="id"
+                                                    value={ridez._id}>
                                                     <Link to={'/ridez/' + ridez._id}>
                                                         <strong>
-                                                            {ridez.start} --> {ridez.stop}: {ridez.details}
+                                                            {ridez.start} --> {ridez.stop}
                                                         </strong>
                                                     </Link>
-                                                    <button className="btn btn-danger" id="delete"
-                                                        style={{marginLeft: 12 + 'px'}}
-                                                        name='_id'
-                                                        value={ridez._id}
-                                                        onClick={() => this.deleteRidez(ridez._id)}>
-                                                        Delete
-                                                    </button>
+                                                        <button className="btn btn-danger" id="delete"
+                                                            style={{ marginLeft: 12 + 'px', marginBottom: 5 + 'px' }}
+                                                            name='_id'
+                                                            value={ridez._id}
+                                                            onClick={() => this.deleteRidez(ridez._id)}>
+                                                            Delete
+                                                        </button>
+                                                    <p><strong>
+                                                        {ridez.details}
+                                                    </strong></p>
                                                 </li>
                                             </form>
                                         ))}

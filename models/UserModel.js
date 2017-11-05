@@ -38,7 +38,7 @@ var UserSchema = new Schema({
     //do you smoke?
     smoker: {
         type: Boolean,
-        default: false,
+        // default: false,
     },
     openSeats: {
         type: Number,
