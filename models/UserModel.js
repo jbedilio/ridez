@@ -35,11 +35,11 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    //do you smoke?
-    smoker: {
-        type: Boolean,
-        // default: false,
-    },
+    // //do you smoke?
+    // smoker: {
+    //     type: Boolean,
+    //     // default: false,
+    // },
     openSeats: {
         type: Number,
         min: 1,

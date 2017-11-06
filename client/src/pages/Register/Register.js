@@ -9,7 +9,7 @@ class Register extends Component {
         firstName: "",
         lastName: "",
         email: "",
-        smoker: "",
+        // smoker: "",
         seats: "",
         currentUser: "",
     };
@@ -25,7 +25,7 @@ class Register extends Component {
         event.preventDefault();
         if(this.state.username && this.state.password &&
             this.state.firstName && this.state.lastName &&
-            this.state.email && this.state.smoker &&
+            this.state.email && //this.state.smoker &&
             this.state.seats) {
             API.register({
                 username: this.state.username,
@@ -33,7 +33,7 @@ class Register extends Component {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,
-                smoker: this.state.smoker,
+                // smoker: this.state.smoker,
                 seats: this.state.seats
             }).then(res => {
                 if(res.data.user) {
@@ -114,17 +114,17 @@ class Register extends Component {
                                     type="text"
                                     name="email"
                                     placeholder="email required" />
-                                    <div className="form-group text-left">
+                                    {/* <div className="form-group text-left">
                                     <label formfor="smoker">Smoke:</label>
                                         <select className="form-control" id="sell"
                                             value={this.state.value}
                                             onChange={this.handleInputChange}
                                             name="smoker"
                                             type="boolean">
-                                            <option value={true}>Yes</option>
+                                            <option value={true}    >Yes</option>
                                             <option value={false}>No</option>
                                         </select>
-                                    </div>
+                                    </div> */}
                                     <div className="form-group text-left">
                                     Open Seats (0 to 7):
                                     <input className="form-control" id="seats"

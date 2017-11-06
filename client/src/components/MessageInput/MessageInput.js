@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import trim from 'trim';
+// import API from '../../utils/API';
+// import Nav from '../Nav';
+// import Login from '../../pages/Login';
 
 class MessageInput extends Component {
+    state = {
+        username: '',
+        currentUser: ''
+    }
 
     constructor(props) {
         super(props);
@@ -13,7 +20,7 @@ class MessageInput extends Component {
     }
     onChange(e) {
         this.setState({
-            message: e.target.value
+            message: e.target.value,
         });
     }
     onKeyup(e) {
@@ -21,6 +28,7 @@ class MessageInput extends Component {
             e.preventDefault();
             let dbCon = this.props.db.database().ref('/messages');
             dbCon.push({
+                username: this.state.username,
                 message: trim(e.target.value)
             });
             this.setState({

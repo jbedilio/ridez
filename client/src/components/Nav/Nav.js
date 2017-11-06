@@ -1,6 +1,7 @@
 import React from "react";
 
 const Nav = (props) =>
+
     <nav className="navbar navbar-inverse navbar-top">
 
         <div className="navbar-left">

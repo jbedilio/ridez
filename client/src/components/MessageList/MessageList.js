@@ -8,7 +8,8 @@ class MessageList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: []
+            messages: [],
+            currentuser: ""
         }
 
         let app = this.props.db.database().ref('messages');

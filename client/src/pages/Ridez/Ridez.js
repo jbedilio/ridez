@@ -65,6 +65,13 @@ class Ridez extends Component {
         }
     };
 
+    handleOnClick = index => {
+        const ridez = this.state.ridez.filter(function(ridez, i) {
+            return index !== i;
+        });
+
+    }
+
     render() {
         return (
             <div>
@@ -117,43 +124,45 @@ class Ridez extends Component {
                         <div className="row">
                             <div className="col-md-6 text-center">
                                 <div className="jumbotron">
-                                <h1>Ridez</h1>
+                                <h1>{"Ridez available: " + this.state.ridez.length}</h1>
                                 </div>
                                 {this.state.ridez.length ? (
                                     <ul style={{listStyleType: 'none'}}>
-                                        {this.state.ridez.map(ridez => (
-                                            <form className="text-left">
-                                                <p><strong>
-                                                    {ridez.username}
-                                                </strong></p>
+                                        {this.state.ridez.map((ridez, i) => (
                                                 <li style={{textAlign: 'left'}}
-                                                    key={(ridez._id)}
-                                                    name="id"
+                                                    key={ridez._id}
+                                                    name={ridez.username}
                                                     value={ridez._id}>
+                                                    <form className="text-left"
+                                                          key={ridez._id}>
+                                                        <p><strong>
+                                                            {ridez.username}
+                                                        </strong></p>
                                                     <Link to={'/ridez/' + ridez._id}>
                                                         <strong>
                                                             {ridez.start} --> {ridez.stop}
                                                         </strong>
                                                     </Link>
-                                                        <button className="btn btn-danger" id="delete"
+                                                        <button className="btn btn-danger"
+                                                            key={ridez._id}
                                                             style={{ marginLeft: 12 + 'px', marginBottom: 5 + 'px' }}
-                                                            name='_id'
-                                                            value={[ridez._id]}
-                                                            onClick={() => this.deleteRidez(ridez._id)}>
+                                                            name='id'
+                                                            value={ridez._id}
+                                                            onClick={() => this.handleOnClick} ref={ridez._id + i}>
                                                             Delete
                                                         </button>
                                                     <p><strong>
                                                         {ridez.details}
                                                     </strong></p>
-                                                </li>
-                                            </form>
+                                                </form>
+                                            </li>
                                         ))}
                                     </ul>
                                 ) : (
                                     <h3>No Ridez Available</h3>
                                 )}
                             </div>
-                            <MessageBoard/>
+                            <MessageBoard />
                         </div>
                     </div>
                 </div>
