@@ -2,16 +2,17 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import API from '../../utils/API';
 import Nav from '../../components/Nav';
+import MessageBoard from '../../components/MessageBoard';
 
 class Ridez extends Component {
-    state = {
-        ridez: [],
-        username: "",
-        start: "",
-        stop: "",
-        details: "",
-        currentUser: ""
-    };
+        state = {
+            ridez: [],
+            username: "",
+            start: "",
+            stop: "",
+            details: "",
+            currentUser: ""
+        };
 
     componentDidMount() {
         this.loadRidez();
@@ -37,7 +38,7 @@ class Ridez extends Component {
         }).catch(err => console.log(err));
     };
 
-    deleteRidez = (id) => {
+    deleteRidez = id => {
         API.deleteRidez(id)
         .then(res => this.loadRidez())
         .catch(err => console.log(err));
@@ -97,12 +98,12 @@ class Ridez extends Component {
                                         name="stop"
                                         placeholder="stop required" />
                                     <br />
-                                        <label formfor="details">Details:</label>
+                                    <label formfor="details">Details:</label>
                                         <textarea className="form-control" rows="5" id="Details"
-                                            onChange={this.handleInputChange}
-                                            type="text"
-                                            name="details"
-                                            placeholder="details"></textarea>
+                                        onChange={this.handleInputChange}
+                                        type="text"
+                                        name="details"
+                                        placeholder="details"></textarea>
                                     <br />
                                     <button className="btn-primary" id="newRidez"
                                         disabled={!(this.state.username && this.state.start && this.state.stop)}
@@ -137,7 +138,7 @@ class Ridez extends Component {
                                                         <button className="btn btn-danger" id="delete"
                                                             style={{ marginLeft: 12 + 'px', marginBottom: 5 + 'px' }}
                                                             name='_id'
-                                                            value={ridez._id}
+                                                            value={[ridez._id]}
                                                             onClick={() => this.deleteRidez(ridez._id)}>
                                                             Delete
                                                         </button>
@@ -152,6 +153,7 @@ class Ridez extends Component {
                                     <h3>No Ridez Available</h3>
                                 )}
                             </div>
+                            <MessageBoard/>
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ class Details extends Component {
             }).catch(err => console.log(err));
         }
     
-    render(props) {
+    render() {
         return (
             <div>
                 <Nav userInfo={this.state.currentUser} />
@@ -30,7 +30,7 @@ class Details extends Component {
                         <div className="col-md-12">
                             <div className="jumbotron">
                                 <h1>
-                                    {this.state.start} to {this.state.stop}
+                                    {this.state.ridez.start} to {this.state.ridez.stop}
                                 </h1>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ class Details extends Component {
                             <article>
                                 <h1>Details</h1>
                                 <p>
-                                    {this.state.details}
+                                    {this.state.ridez.details}
                                 </p>
                             </article>
                         </div>

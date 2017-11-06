@@ -3,9 +3,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Register from './pages/Register';
 import Login from './pages/Login';
-// import Chat from './pages/Chat';
 import Ridez from './pages/Ridez';
 import Details from './pages/Details';
+
 
 const App = () =>
   <Router>

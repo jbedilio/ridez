@@ -20,7 +20,7 @@ export default {
     },
     // Deletes one with the given id
     deleteRidez: function (id) {
-        return axios.delete('/api/ridez/', id);
+        return axios.post('/api/ridez/', id);
     },
     // Saves one to the database
     save: function (ridezData) {

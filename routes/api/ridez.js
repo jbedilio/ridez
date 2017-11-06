@@ -11,6 +11,6 @@ router.route('/')
 router.route('/:id')
 .get(ridezController.findById)
 .post(ridezController.update)
-.delete(ridezController.remove);
+.post(ridezController.remove);
 
 module.exports = router;
