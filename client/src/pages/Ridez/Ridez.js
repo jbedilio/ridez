@@ -65,12 +65,17 @@ class Ridez extends Component {
         }
     };
 
-    handleOnClick = index => {
-        const ridez = this.state.ridez.filter(function(ridez, i) {
-            return index !== i;
-        });
+    // deleteRidez = key => {
+    //     const ridez = this.state.ridez.filter((ride, key) => ride._id !== key);
+    //         this.setState({ ridez });
+    //     };
 
-    }
+    // removeFriend = id => {
+    //     // Filter this.state.friends for friends with an id not equal to the id being removed
+    //     const friends = this.state.friends.filter(friend => friend.id !== id);
+    //     // Set this.state.friends equal to the new friends array
+    //     this.setState({ friends });
+    // });
 
     render() {
         return (
@@ -146,9 +151,8 @@ class Ridez extends Component {
                                                         <button className="btn btn-danger"
                                                             key={ridez._id}
                                                             style={{ marginLeft: 12 + 'px', marginBottom: 5 + 'px' }}
-                                                            name='id'
                                                             value={ridez._id}
-                                                            onClick={() => this.handleOnClick} ref={ridez._id + i}>
+                                                            onClick={() => this.deleteRidez(ridez._id)}>
                                                             Delete
                                                         </button>
                                                     <p><strong>
