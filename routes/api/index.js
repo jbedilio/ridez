@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const auth = require('./auth.js');
-const ridez = require('./ridez.js');
+const auth = require('./auth');
+const ridez = require('./ridez');
 
 //auth routes - /api/auth
 router.use('/auth', auth);

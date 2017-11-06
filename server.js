@@ -48,7 +48,7 @@ db.once('open', () => {
 
 const routes = require('./routes');
 
-app.use('/', routes);
+app.use(routes);
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API Server now listening on PORT ${PORT}!`);

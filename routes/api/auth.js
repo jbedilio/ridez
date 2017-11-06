@@ -1,5 +1,6 @@
-const router = require('express').Router();
-const authController = require('./../../controllers/authController.js');
+const express = require('express');
+const router = express.Router();
+const authController = require('../../controllers/authController.js');
 
 // postfix to /api/auth
 router.route('/register').post(authController.register);

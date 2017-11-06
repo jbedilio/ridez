@@ -127,7 +127,7 @@ class Ridez extends Component {
                                                     {ridez.username}
                                                 </strong></p>
                                                 <li style={{textAlign: 'left'}}
-                                                    key={ridez._id}
+                                                    key={(ridez._id)}
                                                     name="id"
                                                     value={ridez._id}>
                                                     <Link to={'/ridez/' + ridez._id}>

@@ -1,5 +1,6 @@
-const router = require('express').Router();
-const ridezController = require('./../../controllers/ridezController.js');
+const express = require('express');
+const router = express.Router();
+const ridezController = require('../../controllers/ridezController.js');
 
 //route = to /api/ridez
 router.route('/')
