@@ -65,18 +65,6 @@ class Ridez extends Component {
         }
     };
 
-    // deleteRidez = key => {
-    //     const ridez = this.state.ridez.filter((ride, key) => ride._id !== key);
-    //         this.setState({ ridez });
-    //     };
-
-    // removeFriend = id => {
-    //     // Filter this.state.friends for friends with an id not equal to the id being removed
-    //     const friends = this.state.friends.filter(friend => friend.id !== id);
-    //     // Set this.state.friends equal to the new friends array
-    //     this.setState({ friends });
-    // });
-
     render() {
         return (
             <div>
@@ -133,30 +121,31 @@ class Ridez extends Component {
                                 </div>
                                 {this.state.ridez.length ? (
                                     <ul style={{listStyleType: 'none'}}>
-                                        {this.state.ridez.map((ridez, i) => (
+                                        {this.state.ridez.map(ride => (
                                                 <li style={{textAlign: 'left'}}
-                                                    key={ridez._id}
-                                                    name={ridez.username}
-                                                    value={ridez._id}>
+                                                    key={ride._id}
+                                                    name={ride.username}
+                                                    value={ride._id}>
                                                     <form className="text-left"
-                                                          key={ridez._id}>
+                                                          key={ride._id}>
                                                         <p><strong>
-                                                            {ridez.username}
+                                                            {ride.username}
                                                         </strong></p>
-                                                    <Link to={'/ridez/' + ridez._id}>
+                                                    <Link to={'/ridez/' + ride._id}>
                                                         <strong>
-                                                            {ridez.start} --> {ridez.stop}
+                                                            {ride.start} --> {ride.stop}
                                                         </strong>
                                                     </Link>
                                                         <button className="btn btn-danger"
-                                                            key={ridez._id}
+                                                            key={ride._id}
                                                             style={{ marginLeft: 12 + 'px', marginBottom: 5 + 'px' }}
-                                                            value={ridez._id}
-                                                            onClick={() => this.deleteRidez(ridez._id)}>
+                                                            name='_id'
+                                                            value={ride._id}
+                                                            onClick={() => this.deleteRidez(ride._id)}>
                                                             Delete
                                                         </button>
                                                     <p><strong>
-                                                        {ridez.details}
+                                                        {ride.details}
                                                     </strong></p>
                                                 </form>
                                             </li>

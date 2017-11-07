@@ -23,7 +23,7 @@ export default {
         return axios.post('/api/ridez/', id);
     },
     // Saves one to the database
-    save: function (ridezData) {
-        return axios.post("/api/ridez", ridezData);
+    save: function (rideData) {
+        return axios.post("/api/ridez", rideData);
     },
 };

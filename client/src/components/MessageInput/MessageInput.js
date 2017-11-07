@@ -5,10 +5,10 @@ import trim from 'trim';
 // import Login from '../../pages/Login';
 
 class MessageInput extends Component {
-    state = {
-        username: '',
-        currentUser: ''
-    }
+    // state = {
+    //     username: '',
+    //     currentUser: ''
+    // }
 
     constructor(props) {
         super(props);
@@ -28,7 +28,7 @@ class MessageInput extends Component {
             e.preventDefault();
             let dbCon = this.props.db.database().ref('/messages');
             dbCon.push({
-                username: this.state.username,
+                // username: this.props.username,
                 message: trim(e.target.value)
             });
             this.setState({
