@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
+import Ridez from "../Ridez";
 
 class Details extends Component {
     state = {
@@ -51,6 +52,7 @@ class Details extends Component {
                         </div>
                     </div>
                 </div>
+
             </div>
         );
     }
