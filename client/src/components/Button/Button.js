@@ -1,10 +1,9 @@
 import React from "react";
-import "./DeleteBtn.css";
 
-const Button = props => (
-    <button className='btn btn-danger' {...props}>
+export const Button = props => (
+    <button  {...props} className='btn btn-danger'>
     {this.childrent}
     </button>
 );
 
-export default DeleteBtn;
+export default Button;

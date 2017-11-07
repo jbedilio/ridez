@@ -5,7 +5,7 @@ import Nav from "../../components/Nav";
 
 class Details extends Component {
     state = {
-        ridez: {},
+        ride: {},
         currentUser: ""
     };
 
@@ -16,7 +16,7 @@ class Details extends Component {
                     this.props.history.push('./login');
                 } else {
                     console.log('user:', res.data.sess);
-                    this.setState({ currentUser: res.data.sess.passport.user, ridez: res.data.results})
+                    this.setState({ currentUser: res.data.sess.passport.user, ride: res.data.results})
                 }
             }).catch(err => console.log(err));
         }
@@ -30,7 +30,7 @@ class Details extends Component {
                         <div className="col-md-12">
                             <div className="jumbotron">
                                 <h1>
-                                    {this.state.ridez.start} to {this.state.ridez.stop}
+                                    {this.state.ride.start} to {this.state.ride.stop}
                                 </h1>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ class Details extends Component {
                             <article>
                                 <h1>Details</h1>
                                 <p>
-                                    {this.state.ridez.details}
+                                    {this.state.ride.details}
                                 </p>
                             </article>
                         </div>
