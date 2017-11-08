@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
-import Ridez from "../Ridez";
+// import Ridez from "../Ridez";
+import {MapContainer} from '../../components/MapContainer/MapContainer.js';
+// import GoogleApiWrapper from '../../components/MapContainer/MapContainer.js';
+// import Map from '../../components/Map';
 
 class Details extends Component {
     state = {
@@ -37,7 +40,7 @@ class Details extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-12 md-offset-1">
+                        <div className="col-md-12">
                             <article>
                                 <h1>Details</h1>
                                 <p>
@@ -51,8 +54,12 @@ class Details extends Component {
                             <Link to="/">Back to Ridez</Link>
                         </div>
                     </div>
+                    <div className="row">
+                    <div className="col-md-12" style={{width: '100%', height: '400px'}}>
+                        <MapContainer />
+                    </div>
+                    </div>
                 </div>
-
             </div>
         );
     }

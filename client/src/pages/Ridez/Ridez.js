@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import API from '../../utils/API';
+import API from '../../utils/API.js';
 import Nav from '../../components/Nav';
 import MessageBoard from '../../components/MessageBoard';
 
@@ -34,6 +34,8 @@ class Ridez extends Component {
                     stop: "",
                     details: ""
                 })
+                console.log("currentUser: ", res.data.sess.passport.user + 
+                            '\nridez: ', res.data.results);
             }
         }).catch(err => console.log(err));
     };

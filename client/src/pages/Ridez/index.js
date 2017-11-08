@@ -1,1 +1,1 @@
-export { default } from './Ridez';
+export { default } from './Ridez.js';

@@ -46,7 +46,7 @@ db.once('open', () => {
     console.log('Mongoose in the hizzy!');
 });
 
-const routes = require('./routes');
+const routes = require('./routes/index.js');
 
 app.use(routes);
 

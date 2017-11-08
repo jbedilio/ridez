@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ridezController = require('../../controllers/ridezController');
+const ridezController = require('./../../controllers/ridezController.js');
 
 //route = to /api/ridez
 router.route('/')
@@ -12,6 +12,6 @@ router.route('/')
 router.route('/:id')
 .get(ridezController.findById)
 .post(ridezController.update)
-.post(ridezController.remove);
+.delete(ridezController.remove);
 
 module.exports = router;

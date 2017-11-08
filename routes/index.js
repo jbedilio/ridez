@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 //import the api controllers
-const api = require('./api/index');
+const api = require('./api/index.js');
 
 
 //api routes

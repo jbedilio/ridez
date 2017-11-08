@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('./../models/UserModel.js');
+const auth = require('./../routes/api/auth.js');
 // const router = require('express').Router();
 
 module.exports = {
