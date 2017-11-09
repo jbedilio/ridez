@@ -52,9 +52,9 @@ app.use(routes);
 
 app.get('*', function (req, res) {
     if (process.env.NODE_ENV === 'production') {
-        res.sendFile(path.join(__dirname, '../client/build/index.html'));
+        res.sendFile(path.join(__dirname, '/client/build/index.html'));
     } else {
-        res.sendFile(path.join(__dirname, '../client/public/index.html'));
+        res.sendFile(path.join(__dirname, '/client/public/index.html'));
     }
 });
 
