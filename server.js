@@ -34,7 +34,7 @@ passport.deserializeUser(User.deserializeUser());
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
-    mongoose.connect('mongodb://localhost/ridezdb', { useMongoClient: true });
+    mongoose.connect('mongodb://heroku_8fc35sqb:8v98iqqa0ifk2hg2se16rnbnco@ds151955.mlab.com:51955/heroku_8fc35sqb/ridezdb', { useMongoClient: true });
 };
 
 const db = mongoose.connection;
