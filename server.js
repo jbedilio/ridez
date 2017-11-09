@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3001;
 app.use(express.static('client/build'));
 
 //setting the instance of express to use body-parser
-app.use(bp.urlencoded({ extended: true }));
+app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 
 app.use(require('express-session')({secret: 'sweethomeindiana', resave: false, saveUninitialized: false}));
@@ -53,9 +53,9 @@ app.use(routes);
 
 app.get('*', function (req, res) {
     if (process.env.NODE_ENV === 'production') {
-        res.sendFile(path.join(__dirname, '/client/build/index.html'));
+        res.sendFile(__dirname + '/client/build/index.html');
     } else {
-        res.sendFile(path.join(__dirname, '/client/public/index.html'));
+        res.sendFile(__dirname + '/client/public/index.html');
     }
 });
 
