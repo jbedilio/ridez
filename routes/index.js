@@ -11,9 +11,14 @@ const api = require('./api/index.js');
 router.use('/api', api);
 
 
-// //if no api routes are hit, send the React app
-// router.use(function(req, res) {
-//     res.sendFile(path.join(__dirname, '../client/index.html'));
-// });
+//if no api routes are hit, send the React app
+router.use(function (req, res) {
+if (process.env.NODE_ENV === 'production') {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+} else {
+    res.sendFile(path.join(__dirname, '../client/public/index.html'));
+    }
+});
+
 
 module.exports = router;
