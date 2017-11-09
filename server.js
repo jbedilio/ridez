@@ -49,7 +49,7 @@ db.once('open', () => {
 
 const routes = require('./routes/index.js');
 
-app.use(routes);
+app.use('/', routes);
 
 // app.get('*', function (req, res) {
 //     if (process.env.NODE_ENV === 'production') {
