@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
-// import Ridez from "../Ridez";
-import {MapContainer} from '../../components/MapContainer/MapContainer.js';
+import SearchResultsContainer from './../../components/SearchResultsContainer/SearchResultsContainer.js';
+
+
+import Ridez from "../Ridez";
+// import {MapContainer} from '../../components/MapContainer/MapContainer.js';
 // import GoogleApiWrapper from '../../components/MapContainer/MapContainer.js';
 // import Map from '../../components/Map';
 
@@ -17,7 +20,7 @@ class Details extends Component {
         API.getRidez(this.props.match.params.id)
             .then(res => {
                 if(res.data.statusCode === 401){
-                    this.props.history.push('./login');
+                    this.props.history.push('/login');
                 } else {
                     console.log('user:', res.data.sess);
                     this.setState({ currentUser: res.data.sess.passport.user, ride: res.data.results})
@@ -32,21 +35,19 @@ class Details extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="jumbotron">
+                            <div className="jumbotron text-center">
                                 <h1>
-                                    {this.state.ride.start} to {this.state.ride.stop}
+                                    Details
                                 </h1>
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <article>
-                                <h1>Details</h1>
+                            <h1>{this.state.ride.start} Orlando to Kissimee {this.state.ride.stop}</h1>
                                 <p>
-                                    {this.state.ride.details}
+                                    <h2>Mon - Fri depart at 7a {this.state.ride.details}</h2>
                                 </p>
-                            </article>
                         </div>
                     </div>
                     <div className="row">
@@ -54,10 +55,11 @@ class Details extends Component {
                             <Link to="/">Back to Ridez</Link>
                         </div>
                     </div>
-                    <div className="row">
-                    <div className="col-md-12" style={{width: '100%', height: '400px'}}>
-                        <MapContainer />
-                    </div>
+                    <div className="col-md-12 text-center">
+                        <div>
+                            <img src="https://images.sunshine.co.uk/ss/maps/26/38/1568_9.png" alt="map"/>
+                        </div>
+                        <SearchResultsContainer />
                     </div>
                 </div>
             </div>

@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RidezSchema = new Schema({
-    // username: {
-    //     type: String,
+    username: {
+        type: String,
     //     required: true
-    //},
+    },
     start: {
         type: String,
         required: true

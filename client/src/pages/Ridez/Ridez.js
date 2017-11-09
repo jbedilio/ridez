@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import API from '../../utils/API.js';
+import API from '../../utils/API';
 import Nav from '../../components/Nav';
+import {Ul} from './../../components/List';
+import {Li} from './../../components/List';
 import MessageBoard from '../../components/MessageBoard';
 
 class Ridez extends Component {
@@ -55,7 +57,7 @@ class Ridez extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.start && this.state.stop) {
+        if (this.state.username && this.state.start && this.state.stop) {
             API.save({
                 username: this.state.username,
                 start: this.state.start,
@@ -66,7 +68,7 @@ class Ridez extends Component {
             .catch(err => console.log(err));
         }
     };
-
+    
     render() {
         return (
             <div>
@@ -83,7 +85,7 @@ class Ridez extends Component {
                                         onChange={this.handleInputChange}
                                         type="text"
                                         name="username"
-                                        placeholder="posting username required" />
+                                        placeholder="username required" />
                                     <br />
                                     <input className="form-control" id="start"
                                         value={this.state.start}
@@ -119,12 +121,12 @@ class Ridez extends Component {
                         <div className="row">
                             <div className="col-md-6 text-center">
                                 <div className="jumbotron">
-                                <h1>{"Ridez available: " + this.state.ridez.length}</h1>
+                                <h1>{"Ridez: " + this.state.ridez.length}</h1>
                                 </div>
                                 {this.state.ridez.length ? (
-                                    <ul style={{listStyleType: 'none'}}>
+                                    <Ul style={{listStyleType: 'none'}}>
                                         {this.state.ridez.map(ride => (
-                                                <li style={{textAlign: 'left'}}
+                                                <Li style={{textAlign: 'left'}}
                                                     key={ride._id}
                                                     name={ride.username}
                                                     value={ride._id}>
@@ -150,9 +152,9 @@ class Ridez extends Component {
                                                         {ride.details}
                                                     </strong></p>
                                                 </form>
-                                            </li>
+                                            </Li>
                                         ))}
-                                    </ul>
+                                    </Ul>
                                 ) : (
                                     <h3>No Ridez Available</h3>
                                 )}

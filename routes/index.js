@@ -11,7 +11,7 @@ const api = require('./api/index.js');
 router.use('/api', api);
 
 
-//if no api routes are hit, send the React app
+// //if no api routes are hit, send the React app
 // router.use(function(req, res) {
 //     res.sendFile(path.join(__dirname, '../client/index.html'));
 // });
