@@ -51,13 +51,13 @@ const routes = require('./routes/index.js');
 
 app.use(routes);
 
-app.get('*', function (req, res) {
-    if (process.env.NODE_ENV === 'production') {
-        res.sendFile(__dirname + '/client/build/index.html');
-    } else {
-        res.sendFile(__dirname + '/client/public/index.html');
-    }
-});
+// app.get('*', function (req, res) {
+//     if (process.env.NODE_ENV === 'production') {
+//         res.sendFile(__dirname + '/client/build/index.html');
+//     } else {
+//         res.sendFile(__dirname + '/client/public/index.html');
+//     }
+// });
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API Server now listening on PORT ${PORT}!`);

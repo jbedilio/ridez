@@ -9,8 +9,7 @@ router.route('/')
 
 
 //route = /api/ridez/:id
-router
-.route("/:id")
+router.route("/:id")
 .get(ridezController.findById)
 .post(ridezController.update)
 .delete(ridezController.remove);
