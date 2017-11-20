@@ -19,7 +19,7 @@ export default {
     },
     // Gets one with the given id
     getRidez: function (id) {
-        return axios.get('/api/ridez/', id);
+        return axios.get("/api/ridez/", id);
     },
     // Deletes one with the given id
     deleteRidez: function (id) {

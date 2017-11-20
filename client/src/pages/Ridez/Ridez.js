@@ -7,7 +7,10 @@ import {Li} from './../../components/List';
 import MessageBoard from '../../components/MessageBoard';
 
 class Ridez extends Component {
-        state = {
+
+    constructor(props) {
+        super(props);
+        this.state = {
             ridez: [],
             username: "",
             start: "",
@@ -15,6 +18,7 @@ class Ridez extends Component {
             details: "",
             currentUser: ""
         };
+    };
 
     componentDidMount() {
         this.loadRidez();
@@ -68,7 +72,7 @@ class Ridez extends Component {
             .catch(err => console.log(err));
         }
     };
-    
+
     render() {
         return (
             <div>

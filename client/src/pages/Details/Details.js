@@ -44,9 +44,9 @@ class Details extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <h1>{this.state.ride.start} Orlando to Kissimee {this.state.ride.stop}</h1>
+                            <h1>{this.state.ride.start} Orlando to Lakeland {this.state.ride.stop}</h1>
                                 <p>
-                                    <h2>Mon - Fri depart at 7a {this.state.ride.details}</h2>
+                                    <h2>Mon - Fri 8a and back at 3p{this.state.ride.details}</h2>
                                 </p>
                         </div>
                     </div>

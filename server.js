@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3001;
 app.use(express.static('client/build'));
 
 //setting the instance of express to use body-parser
-app.use(bp.urlencoded({ extended: false }));
+app.use(bp.urlencoded({ extended: true }));
 app.use(bp.json());
 
 app.use(require('express-session')({secret: 'sweethomeindiana', resave: false, saveUninitialized: false}));
@@ -49,7 +49,7 @@ db.once('open', () => {
 
 const routes = require('./routes/index.js');
 
-app.use('/', routes);
+app.use(routes);
 
 // app.get('*', function (req, res) {
 //     if (process.env.NODE_ENV === 'production') {

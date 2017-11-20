@@ -9,11 +9,10 @@ class MessageList extends Component {
         super(props);
         this.state = {
             messages: [],
-            currentuser: ""
         }
 
-        let app = this.props.db.database().ref('messages');
-        app.on('value', snapshot => {
+        let mL = this.props.db.database().ref('messages');
+        mL.on('value', snapshot => {
             this.getData(snapshot.val());
         });
     }

@@ -8,7 +8,7 @@ import Details from '../pages/Details';
 // import SearchResultContainer from "./components/SearchResultContainer";
 
 const App = () =>
-<div id="body">
+//<div id="body">
   <Router history={HashRouter}>
     <div>
       <Switch>
@@ -22,7 +22,7 @@ const App = () =>
       </Switch>
     </div>
   </Router>
-</div>;
+// </div>;
   
 export default App;
 
