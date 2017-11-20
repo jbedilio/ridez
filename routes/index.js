@@ -11,7 +11,7 @@ const api = require('./api/index.js');
 router.use('/api', api);
 
 router.use('*', function (req, res) {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODEMON_ENV === 'production') {  //it was process.env.NODE_ENV === 'production'
         res.sendFile(__dirname + '/client/build/index.html');
     } else {
         res.sendFile(__dirname + '/client/public/index.html');
