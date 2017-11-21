@@ -12,9 +12,9 @@ router.use('/api', api);
 
 router.use('*', function (req, res) {
     if (process.env.NODEMON_ENV === 'production') {  //it was process.env.NODE_ENV === 'production'
-        res.sendFile(__dirname + '/client/build/index.html');
+        res.sendFile(__dirname + './../client/build/index.html');
     } else {
-        res.sendFile(__dirname + '/client/public/index.html');
+        res.sendFile(__dirname + './../client/public/index.html');
     }
 });
 //if no api routes are hit, send the React app
